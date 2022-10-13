@@ -1,4 +1,0 @@
-package day7;
-
-public class Circle {
-}
