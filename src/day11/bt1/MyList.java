@@ -1,5 +1,6 @@
 package day11.bt1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MyList<E> {
@@ -64,10 +65,9 @@ public class MyList<E> {
     public boolean add(E e) {
         if (size == elements.length) {
             ensureCapacity(elements.length);
-            elements[size++] = e;
-            return true;
         }
-        return false;
+        elements[size++] = e;
+        return true;
     }
 
     public void ensureCapacity(int minCapacity) {
@@ -87,6 +87,11 @@ public class MyList<E> {
             elements[i] = null;
         }
         this.size = 0;
+    }
+    public void print() {
+        for (int i = 0; i < DEFAULT_CAPACITY; i++) {
+            System.out.print((E)elements[i] + "\t");
+        }
     }
 
 }
