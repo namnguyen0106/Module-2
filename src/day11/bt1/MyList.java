@@ -1,66 +1,92 @@
 package day11.bt1;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class MyList<E> {
-    int size = 0;
-    static final int DEFAULT_CAPACITY = 10;
-    Object[] elements = new Object[DEFAULT_CAPACITY];
+    private int size = 0;
+    private static final int DEFAULT_CAPACITY = 10;
+    private Object[] elements;
 
     public MyList() {
+        elements = new Object[DEFAULT_CAPACITY];
     }
 
-    public MyList(int size, Object[] elements) {
-        this.size = size;
-        this.elements = elements;
+    public MyList(int capacity) {
+        this.size = capacity;
     }
 
     public void add(int index, E element) {
         if (index > size || index < 0) {
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
-
-        for (int i = size-1; i >= index ; i--) {
-            elements[i + 1] = elements[i];
-            elements[index] = element;
-        }
-        size++;
+        Object[] elementData = this.elements;
+        final int s = this.size;
+        System.arraycopy(elementData, index, elementData, index + 1, s - index);
+        elementData[index] = element;
+        size = s + 1;
     }
 
     public E remove(int index) {
-        return null;
+        E e = (E) elements[index];
+
+        final int newSize = size - 1;
+        if (newSize > index) {
+            System.arraycopy(elements, index + 1, elements, index, newSize - index);
+        }
+        elements[newSize] = null;
+        size--;
+        return e;
     }
 
     public int size() {
-        return 0;
+        return size;
     }
 
     public E clone() {
-        return null;
+        E element;
+        element = (E) Arrays.copyOf(elements, size);
+        return element;
     }
 
     public boolean contains(E o) {
-        return true;
+        return indexOf(o) >= 0;
     }
 
     public int indexOf(E o) {
-        return 0;
+        for (int i = 0; i < size; i++) {
+            if (o.equals(elements[i])) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public boolean add(E e) {
-        return true;
+        if (size == elements.length) {
+            ensureCapacity(elements.length);
+            elements[size++] = e;
+            return true;
+        }
+        return false;
     }
 
     public void ensureCapacity(int minCapacity) {
-
+        int newSize = minCapacity * 2;
+        elements = Arrays.copyOf(elements, newSize);
     }
 
     public E get(int i) {
-        return null;
+        if (i > size || i < 0) {
+            throw new IndexOutOfBoundsException("Index: " + i + ", Size: " + size);
+        }
+        return (E) elements[i];
     }
 
     public void clear() {
-
+        for (int i = 0; i < size; i++) {
+            elements[i] = null;
+        }
+        this.size = 0;
     }
+
 }
