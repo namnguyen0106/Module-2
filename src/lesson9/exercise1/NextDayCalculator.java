@@ -1,4 +1,4 @@
-package lesson9.bt1;
+package lesson9.exercise1;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
