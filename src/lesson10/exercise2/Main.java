@@ -1,4 +1,4 @@
-package lesson10.bt2;
+package lesson10.exercise2;
 
 import java.util.Iterator;
 import java.util.LinkedList;

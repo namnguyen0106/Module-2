@@ -1,4 +1,4 @@
-package lesson10.bt2;
+package lesson10.exercise2;
 
 public class MyLinkedList<E> extends Node {
     private Node head;
