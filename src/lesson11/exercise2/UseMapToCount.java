@@ -1,4 +1,4 @@
-package lesson11.bt2;
+package lesson11.exercise2;
 
 import java.util.*;
 
