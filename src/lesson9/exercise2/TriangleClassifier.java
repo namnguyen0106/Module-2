@@ -1,4 +1,4 @@
-package lesson9.bt2;
+package lesson9.exercise2;
 
 public class TriangleClassifier {
 
