@@ -1,4 +1,4 @@
-package lesson11.bt3;
+package lesson11.exercise3;
 
 public class Solution {
     void enQueue(Queue q, int value) {
