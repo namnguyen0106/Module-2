@@ -13,7 +13,7 @@ public class MyList<E> {
     }
 
     public MyList(int capacity) {
-        this.size = capacity;
+        elements = new Object[capacity];
     }
 
     public void add(int index, E element) {
