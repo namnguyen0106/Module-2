@@ -1,4 +1,4 @@
-package lesson6.bt3;
+package lesson6.exercise3;
 
 public class MovablePoint extends Point {
     private float xSpeed = 0.0f;

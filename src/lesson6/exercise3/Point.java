@@ -1,4 +1,4 @@
-package lesson6.bt3;
+package lesson6.exercise3;
 
 public class Point {
     private float x = 0.0f;
