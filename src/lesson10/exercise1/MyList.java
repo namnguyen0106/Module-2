@@ -1,4 +1,4 @@
-package lesson10.bt1;
+package lesson10.exercise1;
 
 import java.util.Arrays;
 
