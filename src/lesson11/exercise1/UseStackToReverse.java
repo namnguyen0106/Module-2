@@ -1,4 +1,4 @@
-package lesson11.bt1;
+package lesson11.exercise1;
 
 import java.util.Arrays;
 import java.util.Stack;
