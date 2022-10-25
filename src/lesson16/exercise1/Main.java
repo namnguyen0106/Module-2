@@ -5,13 +5,14 @@ import java.io.*;
 public class Main {
     final static String SOURCE_PATH_FILE = "D:\\CODEGYM\\Code\\Module-2\\src\\lesson16\\exercise1\\from.txt";
     final static String TARGET_PATH_FILE = "D:\\CODEGYM\\Code\\Module-2\\src\\lesson16\\exercise1\\to.txt";
-    private static void main(String[] args) {
+    public static void main(String[] args) {
         System.out.println(readFile(SOURCE_PATH_FILE));
         writeFile(TARGET_PATH_FILE, readFile(SOURCE_PATH_FILE));
     }
 
     private static String readFile(String filePath){
-        String str = "";
+        StringBuilder str = new StringBuilder();
+        String line = "";
         try {
             File file = new File(filePath);
 
@@ -20,12 +21,14 @@ public class Main {
             }
 
             BufferedReader br = new BufferedReader(new FileReader(file));
-            str = br.readLine();
+            while ((line = br.readLine()) != null) {
+                str.append(line+ "\n");
+            }
             br.close();
         } catch (Exception e) {
             System.err.println("Fie không tồn tại or nội dung có lỗi!");
         }
-        return str;
+        return str.toString();
     }
 
     public static void writeFile(String filePath, String content) {
