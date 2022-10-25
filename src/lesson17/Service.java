@@ -3,6 +3,7 @@ package lesson17;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Service {
@@ -34,11 +35,15 @@ public class Service {
     }
 
     public void create(String path, Product product) {
-        productList = readDataFromFile(path);
-        product.setId(productList.size() + 1);
-        productList.add(product);
-        writeToFile(path, productList);
-        System.out.println("\n" + "==================" + "\n");
+        try {
+            productList = readDataFromFile(path);
+            product.setId(productList.size() + 1);
+            productList.add(product);
+            writeToFile(path, productList);
+            System.out.println("SUCCESS" + "\n" + "==================" + "\n");
+        } catch (RuntimeException e) {
+            System.out.println("FAIL" + "\n" + "==================" + "\n");
+        }
     }
 
     public void getAll(String path) {
@@ -55,10 +60,12 @@ public class Service {
         String name = scanner.nextLine();
         List<Product> products = readDataFromFile(path);
         for (Product product : products) {
-            if (product.getName().contains(name)) {
-                System.out.println(product + "\n" + "==================" + "\n");
+            if (product.getName().toUpperCase(Locale.ROOT)
+                    .contains(name.toUpperCase())) {
+                System.out.println(product);
             }
         }
+        System.out.println("\n" + "==================" + "\n");
     }
 
     public void writeToFile(String path, List<Product> productList) {
