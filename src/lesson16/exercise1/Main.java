@@ -5,12 +5,12 @@ import java.io.*;
 public class Main {
     final static String SOURCE_PATH_FILE = "D:\\CODEGYM\\Code\\Module-2\\src\\lesson16\\exercise1\\from.txt";
     final static String TARGET_PATH_FILE = "D:\\CODEGYM\\Code\\Module-2\\src\\lesson16\\exercise1\\to.txt";
-    public static void main(String[] args) {
+    private static void main(String[] args) {
         System.out.println(readFile(SOURCE_PATH_FILE));
         writeFile(TARGET_PATH_FILE, readFile(SOURCE_PATH_FILE));
     }
 
-    public static String readFile(String filePath){
+    private static String readFile(String filePath){
         String str = "";
         try {
             File file = new File(filePath);
